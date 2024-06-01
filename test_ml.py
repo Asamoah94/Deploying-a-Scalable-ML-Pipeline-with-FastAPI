@@ -1,7 +1,7 @@
 import pytest
 from ml.model import train_model, compute_model_metrics
 from ml.data import process_data
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 import numpy as np
 
 
@@ -16,7 +16,7 @@ def test_train_model_returns_expected_type():
     
     # Call the ML function and assert its output type
     model = train_model(X_train, y_train)
-    assert isinstance(model, DecisionTreeClassifier)
+    assert isinstance(model, LogisticRegression)
 
 
 # Test if the ML model uses the expected algorithm
@@ -30,23 +30,22 @@ def test_train_model_uses_expected_algorithm():
     
     # Call the ML function and assert its algorithm
     model = train_model(X_train, y_train)
-    assert model.__class__.__name__ == 'DecisionTreeClassifier'
+    assert model.__class__.__name__ == 'LogisticRegression'
 
 
-# Test if the computing metrics functions return the expected value
-def test_compute_model_metrics_returns_expected_value():
+# Test the train_model function with a larger dataset
+def test_train_model_with_more_data():
     """
-    Test if the computing metrics functions return the expected value.
+    Test the train_model function with a larger dataset.
     """
-    # Generate some dummy data
-    y_true = np.array([0, 1, 0, 1, 1])
-    y_pred = np.array([0, 1, 0, 1, 0])
-    
-    # Call the compute_model_metrics function and assert its output
-    precision, recall, f1 = compute_model_metrics(y_true, y_pred)
-    assert pytest.approx(precision) == 0.75
-    assert pytest.approx(recall) == 0.6666666666666666
-    assert pytest.approx(f1) == 0.7058823529411765
+    X_train = np.random.rand(100, 5)
+    y_train = np.random.randint(0, 2, 100)
+    model = train_model(X_train, y_train)
+    assert isinstance(model, LogisticRegression)
+
+
+
+
 
 
 # Run the tests

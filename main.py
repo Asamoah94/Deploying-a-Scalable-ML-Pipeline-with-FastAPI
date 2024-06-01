@@ -26,10 +26,10 @@ class Data(BaseModel):
     hours_per_week: int = Field(..., example=40, alias="hours-per-week")
     native_country: str = Field(..., example="United-States", alias="native-country")
 
-path =  "/Users/albertasamoah/Desktop/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/model/encoder.pkl"
+path =  "model/encoder.pkl"
 encoder = load_model(path)
 
-path = "/Users/albertasamoah/Desktop/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/model/model.pkl"
+path = "model/model.pkl"
 model = load_model(path)
 
 # TODO: create a RESTful API using FastAPI
@@ -62,7 +62,7 @@ async def post_inference(data: Data):
         "sex",
         "native-country",
     ]
-    data_processed, _, _, _ = process_data(data, training=False, lb=None)
+    data_processed, _, _, _ = process_data(data, cat_features, training=False, encoder = encoder,lb=None)
 
     _inference = model.predict(data_processed)
     return {"result": apply_label(_inference)}
