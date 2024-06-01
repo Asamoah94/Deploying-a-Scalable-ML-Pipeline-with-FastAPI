@@ -1,7 +1,9 @@
 import pandas as pd
 
 # Load the dataset
-data = pd.read_csv("/Users/albertasamoah/Desktop/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/data/census.csv")
+data = pd.read_csv(
+    "/Users/albertasamoah/Desktop/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/data/census.csv"
+)
 
 # Display information about the dataset
 print("Dataset Information:")
