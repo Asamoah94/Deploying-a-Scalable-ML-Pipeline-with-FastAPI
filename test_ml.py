@@ -42,13 +42,6 @@ def test_train_model_with_more_data():
     y_train = np.random.randint(0, 2, 100)
     model = train_model(X_train, y_train)
     assert isinstance(model, LogisticRegression)
-
-
-
-
-
-
 # Run the tests
 if __name__ == "__main__":
     pytest.main(['-v', 'test_ml.py'])
-
