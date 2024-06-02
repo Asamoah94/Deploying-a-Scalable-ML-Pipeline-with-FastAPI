@@ -29,7 +29,8 @@ The intended use of this model is to predict whether an individual's income exce
 ## Training Data
 The model was trained on the UCI Adult Census Income dataset (census.csv), which contains demographic information such as age, education, marital status, occupation, etc., along with corresponding income labels.
 ## Evaluation Data
-The model was evaluated on a separate test dataset split from the same UCI Adult Census Income dataset.
+The model was evaluated on a separate test dataset split from the same UCI Adult Census Income dataset. Approximately 20% of the total dataset was used for evaluation.
+
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
 
