@@ -1,4 +1,3 @@
-import json
 import requests
 
 # Send a GET request
@@ -32,4 +31,3 @@ url = "http://127.0.0.1:8000/data/"
 response_post = requests.post(url, json=data)
 print("POST Request Status Code:", response_post.status_code)
 print("Result:", response_post.text)
-

@@ -31,6 +31,7 @@ def test_model_is_fitted():
     assert hasattr(model, 'coef_')
     assert hasattr(model, 'intercept_')
 
+
 def test_dataset_size_and_dtype():
     """
     Test if the training and test datasets have the expected size or data type.
